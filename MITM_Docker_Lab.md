@@ -17,6 +17,7 @@ Before starting this lab, make sure you have the following installed:
 Docker Desktop is required to simulate the victim and attacker machines. If you haven’t installed Docker Desktop, follow the installation instructions here: [Docker Desktop Installation](https://docs.docker.com/desktop/).
 
 Once installed, verify that both Docker and Docker Compose are working by running:
+```
 
 ```bash
 docker --version
