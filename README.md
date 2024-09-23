@@ -119,8 +119,8 @@ To launch the MITM attack, follow these steps:
 
    Then, input the victim IP and gateway IP as prompted:
    ```bash
-   Enter victim IP: 172.18.0.2
-   Enter gateway IP: 172.18.0.1
+   Enter victim IP: 172.18.0.2 # use IP address from Step 4o
+   Enter gateway IP: 172.18.0.1 # use IP address from Step 4o
    ```
 
    This will initiate the ARP spoofing attack.
