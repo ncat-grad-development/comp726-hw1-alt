@@ -28,8 +28,8 @@ docker-compose --version
 The lab environment is available as a Docker Compose configuration. Clone the repository to your local machine using:
 
 ```bash
-git clone https://github.com/your-lab-repo/mitm-docker-lab.git
-cd mitm-docker-lab
+git clone https://github.com/ncat-grad-development/comp726-hw1-alt
+cd comp726-hw1-alt
 ```
 
 ### Step 3: Docker Compose Configuration
