@@ -61,8 +61,8 @@ services:
       - mitm_net
     cap_add:
       - NET_ADMIN
-    volumes:
-      - ./mitm_script.py:/home/ubuntu/mitm_script.py
+    #volumes:
+     # - ./mitm_script.py:/home/ubuntu/mitm_script.py
 
 networks:
   mitm_net:
