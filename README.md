@@ -50,7 +50,7 @@ Copy and Run the following command. Take note of each IP address
 
 ```bash
 echo ""
-echo "🕵🕵🕵🕵🕵🕵🕵"
+echo "💻💪🌐 As you learn more about cybersecurity, you will grow stronger. 🛡️🔒📈"
 echo "💀 Attacker IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' attacker)";
 echo "💀 Attacker MAC: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' attacker)";
 echo "------------------------"
