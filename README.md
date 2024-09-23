@@ -54,11 +54,11 @@ Run the following command. Take note of each IP address
 ### Step 5: Access You Victim and Attacker Containers
 From local terminal session run the following:
 ```bash
-./exec_victim.sh
+docker exec -it victim bash -c "cd /home/ubuntu && bash"
 ```
 From another terminal session run the following:
 ```bash
-./exec_attacker.sh
+docker exec -it attacker bash -c "cd /home/ubuntu && bash"
 ```
 
 
