@@ -174,16 +174,4 @@ docker-compose down
 
 ## Conclusion
 In this lab, you successfully simulated a Man-in-the-Middle attack using Docker and Docker Compose. You learned how ARP spoofing works and used `tcpdump` to analyze the network traffic. Be sure to review the captured traffic to fully understand how MITM attacks can be executed and detected.
-```
 
-
-### Step 9: Clean Up
-When you are done with the lab, you can stop and remove the Docker containers by running:
-
-```bash
-docker-compose down
-```
-
-## Conclusion
-In this lab, you successfully simulated a Man-in-the-Middle attack using Docker and Docker Compose. You learned how ARP spoofing works and used Wireshark to analyze the network traffic. Be sure to review the captured traffic to fully understand how MITM attacks can be executed and detected.
-```
