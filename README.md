@@ -47,7 +47,7 @@ services:
   victim:
     image: ubuntu:latest
     container_name: victim
-    command: sleep infinity
+    command: bash -c "apt-get update && apt-get install -y vim tcpdump && sleep infinity"
     networks:
       - mitm_net
     cap_add:
@@ -56,7 +56,7 @@ services:
   attacker:
     image: ubuntu:latest
     container_name: attacker
-    command: sleep infinity
+    command: bash -c "apt-get update && apt-get install -y vim tcpdump && sleep infinity"
     networks:
       - mitm_net
     cap_add:
