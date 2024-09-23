@@ -123,7 +123,7 @@ You can simulate network traffic from the victim container by running basic netw
 
 3. You can also try `curl` to generate HTTP requests:
    ```bash
-   curl http://example.com
+   curl http://ncat.edu
    ```
 
 
