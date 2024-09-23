@@ -66,10 +66,15 @@ From local terminal session run the following:
 docker exec -it victim bash -c "cd /home/ubuntu && bash"
 ```
 
+From Victim Container run the following:
+```bash
+chmod +x victim_browsing.sh
+```
+
 Open a terminal window for the victim container and run the following:
-   ```bash
-   ./victim_browsing.sh
-   ```
+```bash
+./victim_browsing.sh
+```
 
 This will start two containers: `victim` and `attacker`, both connected through a common network.
 
