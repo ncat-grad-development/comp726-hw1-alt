@@ -46,12 +46,16 @@ if gateway_out or gateway_err:
 
 # Start tcpdump to capture and filter ARP packets
 print("\n📡 Capturing and analyzing ARP traffic in real-time with tcpdump:")
-tcpdump_command = ["tcpdump", "-i", "eth0", "arp", "-q", "-n", "-A", "-s", "0", "-c", "10"]
+tcpdump_command = ["tcpdump", "-i", "eth0", "arp", "-q", "-n", "-A", "-s", "0", "-c", "3"]  # Reduced to 3 packets
 print(f"   {' '.join(tcpdump_command)}")
 tcpdump_process = subprocess.Popen(tcpdump_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-# Capture tcpdump output
-tcpdump_output, tcpdump_err = tcpdump_process.communicate()
+try:
+    tcpdump_output, tcpdump_err = tcpdump_process.communicate(timeout=10)  # 10-second timeout
+except subprocess.TimeoutExpired:
+    print("Timeout: tcpdump took too long.")
+    tcpdump_process.terminate()
+    tcpdump_output, tcpdump_err = tcpdump_process.communicate()
 
 # Print tcpdump output
 print("\n📄 TCPDUMP OUTPUT:")
