@@ -126,10 +126,56 @@ You can simulate network traffic from the victim container by running basic netw
    curl http://example.com
    ```
 
-### Step 8: Use Wireshark to Analyze Traffic
-Launch Wireshark on your host machine and start capturing traffic on the Docker bridge network (usually `docker0`).
 
-You should be able to see the victim's traffic, including ARP requests and responses. Monitor the traffic for signs of ARP spoofing and inspect how the attacker is intercepting communications.
+```
+### Step 8: Use `tcpdump` to Analyze Traffic
+
+1. **Install `tcpdump`**:
+   If `tcpdump` is not already installed in the attacker container, install it using the following command:
+   ```bash
+   apt-get update && apt-get install -y tcpdump
+   ```
+
+2. **Capture traffic on the Docker bridge network**:
+   Start capturing traffic in the attacker container on the `eth0` interface (or the relevant interface for the container). Run the following command in the attacker container:
+   ```bash
+   tcpdump -i eth0 -w mitm_capture.pcap
+   ```
+
+   This will capture all traffic on the interface `eth0` and save it to the file `mitm_capture.pcap`.
+
+3. **Analyze captured traffic**:
+   After capturing the traffic, you can transfer the `.pcap` file to your local machine for analysis using a tool like Wireshark, or you can analyze it directly from the command line using `tcpdump`:
+
+   - To view the contents of the capture file:
+     ```bash
+     tcpdump -r mitm_capture.pcap
+     ```
+
+   - To filter ARP traffic only:
+     ```bash
+     tcpdump -r mitm_capture.pcap arp
+     ```
+
+4. **Transferring the `.pcap` file**:
+   If you need to analyze the capture in Wireshark (on a GUI machine), you can copy the `.pcap` file to your host machine. For example, using `docker cp`:
+   ```bash
+   docker cp attacker:/path/to/mitm_capture.pcap ./mitm_capture.pcap
+   ```
+
+   Then, you can open the `mitm_capture.pcap` file in Wireshark for further analysis.
+
+### Step 9: Clean Up
+When you are done with the lab, you can stop and remove the Docker containers by running:
+
+```bash
+docker-compose down
+```
+
+## Conclusion
+In this lab, you successfully simulated a Man-in-the-Middle attack using Docker and Docker Compose. You learned how ARP spoofing works and used `tcpdump` to analyze the network traffic. Be sure to review the captured traffic to fully understand how MITM attacks can be executed and detected.
+```
+
 
 ### Step 9: Clean Up
 When you are done with the lab, you can stop and remove the Docker containers by running:
