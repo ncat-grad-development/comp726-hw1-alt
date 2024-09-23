@@ -48,8 +48,9 @@ docker-compose up -d --build
 ### Step 4: Gather Network Infomation
 Run the following command. Take note of each IP address
 
+```bash
 ./get_network_information.sh
-
+```
 
 ### Step 5: Access You Victim and Attacker Containers
 From local terminal session run the following:
