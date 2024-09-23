@@ -60,28 +60,28 @@ echo "------------------------"
 echo "🌐 Gateway IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' attacker)";
 ```
 
-### Step 5: Access You Victim and Attacker Containers
+### Step 5: Access Your Victim Container
 From local terminal session run the following:
 ```bash
 docker exec -it victim bash -c "cd /home/ubuntu && bash"
 ```
-From another terminal session run the following:
-```bash
-docker exec -it attacker bash -c "cd /home/ubuntu && bash"
-```
 
-
-This will start two containers: `victim` and `attacker`, both connected through a common network.
-
-### Step 6: Launch the Attack
-To launch the MITM attack, follow these steps:
-
-1. Open a terminal window for the victim container and run the following:
+Open a terminal window for the victim container and run the following:
    ```bash
    ./victim_browsing.sh
    ```
 
-2. Run the MITM Python script inside the attacker container. The script will prompt you to enter the victim's IP and the gateway IP.
+This will start two containers: `victim` and `attacker`, both connected through a common network.
+
+### Step 6: Launch the Attack
+
+From another terminal session run the following:
+```bash
+docker exec -it attacker bash -c "cd /home/ubuntu && bash"
+```
+To launch the MITM attack, follow these steps:
+
+Run the MITM Python script inside the attacker container. The script will prompt you to enter the victim's IP and the gateway IP.
 
    
    ```bash
