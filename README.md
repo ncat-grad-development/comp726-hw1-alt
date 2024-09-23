@@ -130,7 +130,7 @@ You can simulate network traffic from the victim container by running basic netw
 
 1. Open a terminal for the victim container:
    ```bash
-   docker exec -it victim bash
+   docker exec -it victim bash -c "cd /home/ubuntu && bash"
    ```
 
 2. Use the `ping` command to generate network traffic:
