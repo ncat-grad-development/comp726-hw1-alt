@@ -29,6 +29,9 @@ The lab environment is available as a Docker Compose configuration. Clone the re
 
 ```bash
 git clone https://github.com/ncat-grad-development/comp726-hw1-alt
+```
+
+```bash
 cd comp726-hw1-alt
 ```
 
