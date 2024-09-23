@@ -1,0 +1,12 @@
+# Dockerfile
+
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+# Install vim and tcpdumpRUN apt-get update && apt-get install -y vim nano tcpdump python3 python3-pip
+
+# Copy the mitm_attacker.py script from the host to the /home/ubuntu directory in the container
+COPY mitm_attacker.py /home/ubuntu/mitm_attacker.py
+
+# Keep the container running
+CMD ["sleep", "infinity"]
