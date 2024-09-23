@@ -10,9 +10,9 @@ services:
       - NET_RAW
 
   attacker:
-    image: ubuntu:latest
+    build:
+      context: .  # This is where Docker will look for the Dockerfile
     container_name: attacker
-    command: sleep infinity
     networks:
       - mitm_net
     cap_add:
