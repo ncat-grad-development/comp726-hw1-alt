@@ -1,0 +1,16 @@
+# Dockerfile.doom for Doom setup
+
+FROM ubuntu:latest
+
+# Install necessary dependencies and Chocolate Doom
+RUN apt-get update && apt-get install -y \
+  chocolate-doom \
+  python3 \
+  wget
+
+# Download the Doom shareware WAD file (free version of Doom)
+RUN wget https://www.doomworld.com/idgames/idstuff/doom/doom1.wad -O /usr/share/games/doom/doom1.wad
+
+# Set Chocolate Doom to run and expose it via a Python web server
+WORKDIR /usr/share/games/doom
+CMD python3 -m http.server 8080
