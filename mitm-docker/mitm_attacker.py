@@ -9,7 +9,7 @@ gateway_ip = input("Enter the gateway's IP address: ")
 # Inform the student that ARP spoofing is starting
 print("""
    ┌───────────────────────────────────────────────────┐
-   │               MITM Attack - ARP Spoofing           │
+   │               MITM Attack - ARP Spoofing          │
    └───────────────────────────────────────────────────┘
 """)
 print(f"\nStarting ARP spoofing for 10 seconds...")
