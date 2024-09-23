@@ -46,10 +46,16 @@ docker-compose up -d --build
 ```
 
 ### Step 4: Gather Network Infomation
-Run the following command. Take note of each IP address
+Copy and Run the following command. Take note of each IP address
 
 ```bash
-./get_network_information.sh
+echo "💀 Attacker IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' attacker)";
+echo "💀 Attacker MAC: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' attacker)";
+echo "------------------------"
+echo "🎯 Victim IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' victim)";
+echo "🎯 Victim MAC: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' victim)";
+echo "------------------------"
+echo "🌐 Gateway IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' attacker)";
 ```
 
 ### Step 5: Access You Victim and Attacker Containers
