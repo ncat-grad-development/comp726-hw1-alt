@@ -4,11 +4,15 @@
 FROM ubuntu:latest
 
 # Install vim and tcpdump
-RUN apt-get update && apt-get install -y vim nano curl tcpdump python3 python3-pip
+RUN apt-get update && apt-get install -y vim nano curl dsniff  tcpdump python3 python3-pip
 
 # Copy the mitm_attacker.py script from the host to the /home/ubuntu directory in the container
 COPY victim_browsing.sh /home/ubuntu/victim_browsing.sh
 COPY surf.glif /home/ubuntu/surf.glif
-
+COPY sad_banker.sh /home/ubuntu/sad_banker.sh
 # Keep the container running
 CMD ["sleep", "infinity"]
+
+# Expose port 8080 for the fake bank page
+EXPOSE 8080
+

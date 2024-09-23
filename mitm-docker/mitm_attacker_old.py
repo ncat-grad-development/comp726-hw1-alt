@@ -6,11 +6,6 @@ victim_ip = input("Enter the victim's IP address: ")
 gateway_ip = input("Enter the gateway's IP address: ")
 
 # Inform the student that ARP spoofing is starting
-print("""
-   ┌───────────────────────────────────────────────────┐
-   │               MITM Attack - ARP Spoofing           │
-   └───────────────────────────────────────────────────┘
-""")
 print(f"\nStarting ARP spoofing for 10 seconds...")
 
 # Spoof victim pretending to be the gateway
@@ -34,7 +29,7 @@ os.system("pkill arpspoof")
 
 # Start tcpdump to capture and filter ARP packets
 print("\n📡 Capturing and analyzing ARP traffic in real-time with tcpdump:")
-tcpdump_command = f"tcpdump -i eth0 'arp or port 80 or port 53' -q -n -A -s 0"
+tcpdump_command = f"tcpdump -nn -i eth0 arp"
 print(f"   {tcpdump_command}")
 os.system(f"{tcpdump_command} -c 10")  # Capture the first 10 ARP packets
 
@@ -55,7 +50,7 @@ print("""
   - The victim is fooled into sending traffic to the attacker.
 
    ┌───────────────────────────────────────────────────┐
-   │        ARP Spoofing Detected in ARP Responses      │
+   │        ARP Spoofing Detected in ARP Responses     │
    └───────────────────────────────────────────────────┘
   Example:
   Who has [GATEWAY IP]? Tell [VICTIM IP] -> Attacker MAC

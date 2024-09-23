@@ -1,5 +1,5 @@
 #!/bin/bash
-cat surf.glif
+
 # List of websites to visit
 sites=(
   "https://www.amazon.com"
