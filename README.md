@@ -107,7 +107,7 @@ To launch the MITM attack, follow these steps:
 
 1. Open a terminal window for the attacker container:
    ```bash
-   docker exec -it attacker bash
+   docker exec -it attacker bash -c "cd /home/ubuntu && bash"
    ```
 
 2. Run the MITM Python script inside the attacker container. The script will prompt you to enter the victim's IP and the gateway IP.
