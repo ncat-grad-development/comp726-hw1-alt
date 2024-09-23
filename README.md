@@ -72,9 +72,13 @@ networks:
 Run the following command. Take note of each IP address
 
 ```bash
-echo "Attacker IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' attacker)"; \
-echo "Victim IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' victim)"; \
-echo "Gateway IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' attacker)"
+echo "💀 Attacker IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' attacker)";
+echo "💀 Attacker MAC: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' attacker)";
+echo "------------------------"
+echo "🎯 Victim IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' victim)";
+echo "🎯 Victim MAC: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' victim)";
+echo "------------------------"
+echo "🌐 Gateway IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' attacker)";
 ```
 
 ### Step 4: MITM Attack Script
