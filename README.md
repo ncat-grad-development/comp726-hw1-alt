@@ -68,9 +68,16 @@ networks:
   mitm_net:
     driver: bridge
 ```
+### Step 4o: Gather Network Infomation
+Run the following command. Take note of each IP address
 
+```bash
+echo "Attacker IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' attacker)"; \
+echo "Victim IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' victim)"; \
+echo "Gateway IP: $(docker inspect -f '{{range .NetworkSettings.Networks}}{{.Gateway}}{{end}}' attacker)"
 ### Step 4: MITM Attack Script
 The following script simulates the ARP spoofing attack. It should be executed in the attacker container.
+```
 
 ```python
 # Basic Python script to simulate MITM setup
