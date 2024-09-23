@@ -34,6 +34,9 @@ git clone https://github.com/ncat-grad-development/comp726-hw1-alt
 ```bash
 cd comp726-hw1-alt
 ```
+```bash
+cd mitm-docker
+```
 
 ### Step 3: Docker Compose Configuration
 The following `docker-compose.yml` sets up two containers (victim and attacker) connected through a common network. The attacker container will have elevated network permissions to simulate an MITM attack.
