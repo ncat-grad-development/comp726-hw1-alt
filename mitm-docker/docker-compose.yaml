@@ -1,22 +1,26 @@
 version: '3'
 services:
   victim:
-    image: ubuntu:latest
+    build:
+      context: .  # The build context is still the current directory
+      dockerfile: Dockerfile.victim  # Specify the custom Dockerfile for the victim
     container_name: victim
     command: sleep infinity
     networks:
       - mitm_net
     cap_add:
-      - NET_RAW
+      - NET_RAW  # Required to manipulate network traffic
 
   attacker:
     build:
-      context: .  # This is where Docker will look for the Dockerfile
+      context: .  # Use the current directory for the attacker as well
+      dockerfile: Dockerfile.attacker  # Specify the custom Dockerfile for the attacker
     container_name: attacker
     networks:
       - mitm_net
     cap_add:
-      - NET_ADMIN
+      - NET_ADMIN  # Required to modify network settings
+
 
 networks:
   mitm_net:
