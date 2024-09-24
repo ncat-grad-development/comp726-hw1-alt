@@ -39,6 +39,13 @@ cd comp726-hw1-alt
 cd mitm-docker
 ```
 
+### For Linux of MacOS users
+Run the following
+```bash
+chmod +x *.sh
+```
+
+
 ### Step 3: Docker Compose Up
 Run the following command from terminal:
 ```bash
@@ -65,7 +72,10 @@ From local terminal session run the following:
 ```bash
 docker exec -it victim bash -c "cd /home/ubuntu && bash"
 ```
-
+Or for Unix-Based Users
+```bash
+./exec_victim.sh
+```
 From Victim Container run the following:
 ```bash
 chmod +x victim_browsing.sh
@@ -83,6 +93,10 @@ This will start two containers: `victim` and `attacker`, both connected through 
 From another terminal session run the following:
 ```bash
 docker exec -it attacker bash -c "cd /home/ubuntu && bash"
+```
+Or for Unix-Based Users
+```bash
+./exec_attacker.sh
 ```
 To launch the MITM attack, follow these steps:
 
