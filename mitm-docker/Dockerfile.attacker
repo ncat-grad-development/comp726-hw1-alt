@@ -4,7 +4,7 @@
 FROM ubuntu:latest
 
 # Install necessary tools including Apache2, vim, tcpdump, dsniff, python3, pip
-RUN apt-get update && apt-get install -y vim curl nano tcpdump dsniff iputils-ping python3 python3-pip apache2
+RUN apt-get update && apt-get install -y net-tools vim curl nano tcpdump dsniff iputils-ping python3 python3-pip apache2
 
 # Copy the mitm_attacker.py script to the home directory
 COPY mitm_attacker.py /home/ubuntu/mitm_attacker.py
