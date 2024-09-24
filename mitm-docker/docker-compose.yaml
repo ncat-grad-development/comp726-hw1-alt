@@ -7,7 +7,7 @@ services:
     container_name: victim
     command: sleep infinity
     networks:
-      - mitm_net
+      - mitm-docker_mitm_net
     cap_add:
       - NET_RAW  # Required to manipulate network traffic
 
@@ -19,10 +19,10 @@ services:
     ports:
       - "80:80"  # Map port 80 from container to host
     networks:
-      - mitm_net
+      - mitm-docker_mitm_net
     cap_add:
       - NET_ADMIN  # Required to modify network settings
 
 networks:
-  mitm_net:
+  mitm-docker_mitm_net:
     driver: bridge
