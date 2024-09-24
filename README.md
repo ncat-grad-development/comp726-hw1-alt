@@ -110,7 +110,12 @@ Run the MITM Python script inside the attacker container. The script will prompt
 
    This will initiate the ARP spoofing attack.
 
-
+### Verify ARP Spoofing Attack
+ 1.	From the Victim Container:
+To see if the victim is fooled into thinking the attacker is the gateway, run:
+```bash
+arp -a
+```
 
 ### Step 9: Clean Up
 When you are done with the lab, you can stop and remove the Docker containers by running:
