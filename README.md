@@ -116,6 +116,11 @@ To see if the victim is fooled into thinking the attacker is the gateway, run:
 ```bash
 arp -a
 ```
+### Exit Attacker Container
+from attacker container run the following command:
+```bash
+exit
+```
 
 ### Step 9: Clean Up
 When you are done with the lab, you can stop and remove the Docker containers by running:
