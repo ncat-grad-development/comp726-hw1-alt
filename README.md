@@ -96,7 +96,7 @@ docker exec -it attacker bash -c "cd /home/ubuntu && bash"
 ```
 Or for Unix-Based Users
 ```bash
-./mitm_attacker.sh
+./exec_attacker.sh
 ```
 To launch the MITM attack, follow these steps:
 
